@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+      <div id="carouselExampleDark" class="carousel carousel-dark slide mb-5" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <img src="{% static 'images/product-2-slider.jpg' %}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src="{% static 'images/product-3-slider.jpg' %}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src="{% static 'images/product-6-slider.jpg' %}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+
+      <!-- End of Carousel -->
+    <h1
+      class="text-center"
+      style="color: grey; font-family: 'Cursive', sans-serif;">
+      Trending Items
+    </h1>
+
+    <div class="container mb-5">
+          <div id="products" class="row">
+              <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+
+                  <div class="card product-item">
+                    <i class="bi bi-heart-fill position-absolute liked"></i>
+                    <i class="bi bi-heart position-absolute like"></i>
+                    <img src="{% static 'images/product-1-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted  fw-light">Headphones</h6>
+                      <h5 class="card-title">Sony WX-5</h5>
+                      <p class="card-text price"> $100.75 <span class="float-end rating-stars" >
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                      </span> </p>
+                      <div class="text-center">
+                        <a class="btn btn-dark w-100" onclick="showToast()" role="button" > Add To Cart</a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item" >
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/product-2-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">SmartWatch</h6>
+                    <h5 class="card-title">Apple Watch 2</h5>
+                    <p class="card-text price"> $500.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item">
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                   <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/product-4-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">Camera</h6>
+                    <h5 class="card-title">Canon WM-5</h5>
+                    <p class="card-text price"> $300.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item">
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                   <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/product-3-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">Mobile</h6>
+                    <h5 class="card-title">Apple IPhone 11</h5>
+                    <p class="card-text price"> $799.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item">
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                  <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/product-5-square.jpg' %}"  onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">Tablet</h6>
+                    <h5 class="card-title">iPad Pro</h5>
+                    <p class="card-text price"> $999.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item">
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                  <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/product-6-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">Drones</h6>
+                    <h5 class="card-title">XT-5</h5>
+                    <p class="card-text price"> $1100.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+
+          </div>
+    </div>
+
+{% endblock %}
