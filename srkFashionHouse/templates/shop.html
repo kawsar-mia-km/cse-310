@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Table Section -->
+        <div class="col-md-3">
+            <div class="table-container">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Categories</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>All of Our Products</td></tr>
+                            <tr><td>Men's</td></tr>
+                            <tr><td>Women's</td></tr>
+                            <tr><td>Children</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Display Section -->
+        <div class="col-md-9 offset-md-3">
+            <div class="row g-4">
+                {% for item in products %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="{{ item.image.url }}" alt="{{ item.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.name }}</h5>
+                                <p class="card-text">{{ item.description }}</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                                <a class="btn btn-danger mx-2" type="button" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
