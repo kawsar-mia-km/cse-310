@@ -15,10 +15,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>All of Our Products</td></tr>
-                            <tr><td>Men's</td></tr>
-                            <tr><td>Women's</td></tr>
-                            <tr><td>Children</td></tr>
+                            <tr><td><a href="?" class="list-group-item {% if not category %}active{% endif %}">All</a></td></tr>
+                            <tr><td> <a href="?category=men" class="list-group-item {% if category == 'men' %}active{% endif %}">Men</a></td></tr>
+                            <tr><td><a href="?category=women" class="list-group-item {% if category == 'women' %}active{% endif %}">Women</a></td></tr>
+                            <tr><td><a href="?category=children" class="list-group-item {% if category == 'children' %}active{% endif %}">Children</a></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -36,7 +36,7 @@
                                 <h5 class="card-title">{{ item.name }}</h5>
                                 <p class="card-text">{{ item.description }}</p>
                                 <a href="#" class="btn btn-primary">View Details</a>
-                                <a class="btn btn-danger mx-2" type="button" href="#">Add to Cart</a>
+                                <a class="btn btn-danger mx-2" type="button" href="{% url 'add_to_cart' item.id %}">Add to Cart</a>
                             </div>
                         </div>
                     </div>

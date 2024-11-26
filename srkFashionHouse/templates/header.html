@@ -13,15 +13,17 @@
               Categories
             </a>
             <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{% url 'shop' %}">Kid's Section</a></li>
-              <li><a class="dropdown-item" href="{% url 'shop' %}">Men's Section</a></li>
-              <li><a class="dropdown-item" href="{% url 'shop' %}">Women's Section</a></li>
+              <li> <a href="{% url 'shop' %}?category=children" class="list-group-item {% if category == 'children' %}active{% endif %}">Children</a></a></li>
+              <li><a href="{% url 'shop' %}?category=men" class="list-group-item {% if category == 'men' %}active{% endif %}">Men</a></li>
+              <li> <a href="{% url 'shop' %}?category=women" class="list-group-item {% if category == 'women' %}active{% endif %}">Women</a></li>
+            
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{% url 'shop' %}">All of Our Products</a></li>
+             
+              <li><a href="{% url 'shop' %}" class="list-group-item {% if not category %}active{% endif %}">All</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cart.html" tabindex="-1">
+            <a class="nav-link" href="{% url 'cart' %}" tabindex="-1">
               Cart<i class="bi bi-cart-plus-fill"></i>
               <span class="cart-badge badge bg-success">4</span></a>
           </li>

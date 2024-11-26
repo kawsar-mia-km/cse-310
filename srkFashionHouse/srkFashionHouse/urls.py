@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from django.contrib.auth.views import LoginView
 from . import views, settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,9 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('products/',include('products.urls')),
     path('shop/',views.shop,name='shop'),
+    path('cart/',views.cart,name='cart'),
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
