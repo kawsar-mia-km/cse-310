@@ -4,7 +4,7 @@ from django.contrib import messages
 from products.models import Product
 from django.contrib.auth.decorators import login_required
 from products.models import CartItem
-
+from django.contrib.auth import logout
 def home(request):
     return render(request, 'home.html')
 
@@ -51,3 +51,8 @@ def signup(request):
         form = UserCreationForm()
 
     return render(request, 'registration/signup.html', {'form': form})
+
+
+def LOGOUT(request):
+    logout(request)
+    return redirect("home")
