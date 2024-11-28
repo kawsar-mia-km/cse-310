@@ -11,20 +11,20 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
-            <img src="{% static 'images/product-2-slider.jpg' %}" class="d-block w-100" alt="...">
+            <img src="{% static 'images/product-3-slider.webp' %}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
 
 
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="3000">
-            <img src="{% static 'images/product-3-slider.jpg' %}" class="d-block w-100" alt="..." >
+            <img src="{% static 'images/product-1-slider.jpg' %}" class="d-block w-100" alt="..." >
             <div class="carousel-caption d-none d-md-block">
 
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="3000">
-            <img src="{% static 'images/product-6-slider.jpg' %}" class="d-block w-100" alt="...">
+            <img src="{% static 'images/product-2-slider.webp' %}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
 
             </div>
@@ -44,7 +44,7 @@
     <h1
       class="text-center"
       style="color: grey; font-family: 'Cursive', sans-serif;">
-      Trending Items
+      TRENDING ITEMS
     </h1>
 
     <div class="container mb-5">
@@ -53,17 +53,16 @@
 
 
                   <div class="card product-item">
-                    <i class="bi bi-heart-fill position-absolute liked"></i>
-                    <i class="bi bi-heart position-absolute like"></i>
-                    <img src="{% static 'images/product-1-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details">
+                    <!--i class="bi bi-heart-fill position-absolute liked"></i>
+                    <i class="bi bi-heart position-absolute like"></i-->
+                    <img src="{% static 'images/product-1-square.webp' %}" onclick="goToProductDetails()" class="card-img-top" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details">
                     <div class="card-body">
-                      <h6 class="card-subtitle mb-2 text-muted  fw-light">Headphones</h6>
-                      <h5 class="card-title">Sony WX-5</h5>
-                      <p class="card-text price"> $100.75 <span class="float-end rating-stars" >
+                      <h5 class="card-title">Hoodie</h5>
+                      <p class="card-text price"> 2380.00 BDT <!--span class="float-end rating-stars" >
                           <i class="bi bi-star-fill"></i>
                           <i class="bi bi-star-fill"></i>
                           <i class="bi bi-star-fill"></i>
-                      </span> </p>
+                      </span--> </p>
                       <div class="text-center">
                         <a class="btn btn-dark w-100" onclick="showToast()" role="button" > Add To Cart</a>
                       </div>
@@ -73,17 +72,22 @@
               <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
 
                 <div class="card product-item" >
-                  <i class="bi bi-heart-fill position-absolute liked"></i>
-                <i class="bi bi-heart position-absolute like"></i>
-                  <img src="{% static 'images/product-2-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <img src="{% static 'images/product-2.webp' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">SmartWatch</h6>
-                    <h5 class="card-title">Apple Watch 2</h5>
-                    <p class="card-text price"> $500.75 <span class="float-end rating-stars" >
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </span> </p>
+                    <h5 class="card-title">Black Jacket</h5>
+                    <p class="card-text price">3270.00 BDT</p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+                <div class="card product-item">
+                  <img src="{% static 'images/product-4-square.webp' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Punjabi</h5>
+                    <p class="card-text price">2699.00 BDT</p>
                     <div class="text-center">
                         <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
                       </div>
@@ -93,17 +97,10 @@
             <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
 
                 <div class="card product-item">
-                  <i class="bi bi-heart-fill position-absolute liked"></i>
-                   <i class="bi bi-heart position-absolute like"></i>
-                  <img src="{% static 'images/product-4-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <img src="{% static 'images/product-3-square.webp' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">Camera</h6>
-                    <h5 class="card-title">Canon WM-5</h5>
-                    <p class="card-text price"> $300.75 <span class="float-end rating-stars" >
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </span> </p>
+                    <h5 class="card-title">Half Sleeve Shirt</h5>
+                    <p class="card-text price">1890.00 BDT </p>
                     <div class="text-center">
                         <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
                       </div>
@@ -113,37 +110,10 @@
             <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
 
                 <div class="card product-item">
-                  <i class="bi bi-heart-fill position-absolute liked"></i>
-                   <i class="bi bi-heart position-absolute like"></i>
-                  <img src="{% static 'images/product-3-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <img src="{% static 'images/product-5-square.webp' %}"  onclick="goToProductDetails()" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">Mobile</h6>
-                    <h5 class="card-title">Apple IPhone 11</h5>
-                    <p class="card-text price"> $799.75 <span class="float-end rating-stars" >
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </span> </p>
-                    <div class="text-center">
-                        <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
-                      </div>
-                  </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
-
-                <div class="card product-item">
-                  <i class="bi bi-heart-fill position-absolute liked"></i>
-                  <i class="bi bi-heart position-absolute like"></i>
-                  <img src="{% static 'images/product-5-square.jpg' %}"  onclick="goToProductDetails()" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">Tablet</h6>
-                    <h5 class="card-title">iPad Pro</h5>
-                    <p class="card-text price"> $999.75 <span class="float-end rating-stars" >
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </span> </p>
+                    <h5 class="card-title">White Shirt</h5>
+                    <p class="card-text price">1890.00 BDT</p>
                     <div class="text-center">
                         <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
                       </div>
@@ -152,19 +122,11 @@
             </div>
 
             <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
-
                 <div class="card product-item">
-                  <i class="bi bi-heart-fill position-absolute liked"></i>
-                  <i class="bi bi-heart position-absolute like"></i>
-                  <img src="{% static 'images/product-6-square.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
+                  <img src="{% static 'images/product-6.jpg' %}" onclick="goToProductDetails()" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted  fw-light ">Drones</h6>
-                    <h5 class="card-title">XT-5</h5>
-                    <p class="card-text price"> $1100.75 <span class="float-end rating-stars" >
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </span> </p>
+                    <h5 class="card-title">Formal Pant</h5>
+                    <p class="card-text price">2790.00 BDT </p>
                     <div class="text-center">
                         <a class="btn btn-dark w-100" onclick="showToast()" role="button"> Add To Cart</a>
                       </div>
