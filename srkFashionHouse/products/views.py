@@ -69,3 +69,50 @@ def checkout(request):
 def order_history(request):
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'order_history.html', {'orders': orders})
+
+
+from .forms import ProductForm
+
+
+def create_product(request):
+
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = ProductForm()
+
+    return render(request, 'create_product.html', {'form': form})
+
+
+def update_product(request, pk):
+
+
+    product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'create_product.html', {'form': form})
+
+
+def delete_product(request, pk):
+
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('home')
+
+    return render(request, 'delete_product.html', {'product': product})
+
+def product_details(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'product_details.html', {'product': product})

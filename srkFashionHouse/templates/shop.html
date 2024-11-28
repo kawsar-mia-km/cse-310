@@ -7,6 +7,11 @@
         <!-- Table Section -->
         <div class="col-md-3">
             <div class="table-container center-absolute" >
+            {% if user.is_authenticated and user.is_superuser %}
+            <div class="text-center">
+            <a href="{% url 'create_product' %}" class="btn btn-primary">Add Product</a>
+            </div>
+            {% endif %}
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead class="table-light">
@@ -36,10 +41,18 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ item.name }}</h5>
                                     <p class="card-text">{{ item.price }} taka</p>
-                                    <a href="#" class="btn btn-primary">View Details</a>
+                                    <a href="{% url 'product_details' item.id %}" class="btn btn-primary">View Details</a>
                                     {% if user.is_authenticated %}
                                     <a class="btn btn-danger mx-2" type="button" href="{% url 'add_to_cart' item.id %}">Add to Cart</a>
                                     {% endif %}
+
+                                    {% if user.is_authenticated and user.is_superuser %}
+                                        <div class="text-center mt-1">
+                                            <a href="{% url 'delete_product' item.id %}" class="btn btn-primary">Delete Product</a>
+                                            <a href="{% url 'update_product' item.id %}" class="btn btn-primary">Edit Product</a>
+                                        </div>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>
