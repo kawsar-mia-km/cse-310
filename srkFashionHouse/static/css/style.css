@@ -183,3 +183,9 @@ body{
     border: 1px solid #dee2e6;
     z-index: 10;
 }
+.center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}

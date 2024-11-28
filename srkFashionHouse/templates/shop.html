@@ -6,7 +6,7 @@
     <div class="row">
         <!-- Table Section -->
         <div class="col-md-3">
-            <div class="table-container">
+            <div class="table-container center-absolute" >
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead class="table-light">
@@ -28,26 +28,25 @@
         <!-- Product Display Section -->
         <div class="col-md-9 offset-md-3">
             <div class="row g-4">
-
-            {% if products %}
-                {% for item in products %}
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <img src="{{ item.image.url }}" alt="{{ item.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ item.name }}</h5>
-                                <p class="card-text">{{ item.price }} taka</p>
-                                <a href="#" class="btn btn-primary">View Details</a>
-                                {% if user.is_authenticated %}
-                                <a class="btn btn-danger mx-2" type="button" href="{% url 'add_to_cart' item.id %}">Add to Cart</a>
-                                {% endif %}
+                {% if products %}
+                    {% for item in products %}
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 shadow-sm">
+                                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ item.name }}</h5>
+                                    <p class="card-text">{{ item.price }} taka</p>
+                                    <a href="#" class="btn btn-primary">View Details</a>
+                                    {% if user.is_authenticated %}
+                                    <a class="btn btn-danger mx-2" type="button" href="{% url 'add_to_cart' item.id %}">Add to Cart</a>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            {% else %}
-            <p>no products available</p>
-            {% endif %}
+                    {% endfor %}
+                {% else %}
+                <p>No products available</p>
+                {% endif %}
             </div>
         </div>
     </div>

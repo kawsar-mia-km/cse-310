@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-
+from .models import Product, CartItem, Order, OrderItem
+from django.utils.timezone import now
 from .models import Product, CartItem
 from django.http import JsonResponse
+from django.contrib import messages
 
 
 
@@ -36,3 +38,34 @@ def update_quantity(request, cart_item_id):
             cart_item.delete()
         return redirect('cart')
     return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+def checkout(request):
+    user = request.user
+    cart_items = CartItem.objects.filter(user=user)
+
+    if cart_items.exists():
+        # Create a new order
+        order = Order.objects.create(user=user)
+
+        # Create order items and clear cart
+        for item in cart_items:
+            OrderItem.objects.create(
+                order=order,
+                product=item.product,
+                quantity=item.quantity
+            )
+        cart_items.delete()  # Clear the cart
+
+        # Add success message
+        messages.success(request, 'Checkout successful!!')
+
+        return redirect('order_history')  # Redirect to order history
+    else:
+        messages.error(request, 'Your cart is empty. Please add items before checkout.')
+        return redirect('cart')
+
+
+def order_history(request):
+    orders = Order.objects.filter(user=request.user).order_by('-created_at')
+    return render(request, 'order_history.html', {'orders': orders})
