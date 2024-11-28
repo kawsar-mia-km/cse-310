@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-header text-center bg-primary text-white">
+                <h2>{{ user.username }}'s Profile</h2>
+            </div>
+            <div class="card-body">
+                <!-- Avatar Section -->
+                    <div class="text-center mb-4">
+                        <img src="{{ user.userprofile.image.url }}" alt="Avatar" class="rounded-circle" width="150" height="150">
+                    </div>
+
+                <!-- User Information -->
+                <p class="text-center"><strong>Email:</strong> {{ user.email }}</p>
+
+                <!-- Edit Profile Button -->
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-primary">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

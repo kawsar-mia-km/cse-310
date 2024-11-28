@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 10px 20px;">
   <div class="container-fluid">
-    <a class="navbar-brand text-success fw-bold" href="/" style="font-size: 1.5rem;">SRK FASHION HOUSE</a>
+    <a class="navbar-brand text-success fw-bold" href="/" style="font-size: 1.5rem;">Srk Fashion House</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,11 +20,14 @@
           </ul>
         </li>
         <li class="nav-item">
+            {% if user.is_authenticated %}
           <a class="nav-link text-light fw-bold" href="{% url 'cart' %}" tabindex="-1" style="position: relative;">
             Cart<i class="bi bi-cart-plus-fill ms-1"></i>
+            {% endif %}
           </a>
         </li>
       </ul>
+
       <form class="d-flex search-form ms-auto" style="width: 250px;">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-radius: 20px;">
         <button class="btn btn-success" type="submit" style="border-radius: 50%;">
@@ -38,8 +41,8 @@
             My Account
           </a>
           <ul class="dropdown-menu bg-dark border-secondary text-light" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-light" href="/#" data-bs-toggle="modal" data-bs-target="#exampleModal">My Orders</a></li>
-            <li><a class="dropdown-item text-light" href="/#" data-bs-toggle="modal" data-bs-target="#exampleModal">{{ user }} Profile</a></li>
+            <li><a class="dropdown-item text-light" href="{% url 'profile' %}">{{ user }} Profile</a></li>
+            <li><a class="dropdown-item text-light" href="#"> My orders</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-light" href="{% url 'logout' %}">Logout</a></li>
           </ul>
@@ -49,6 +52,7 @@
       <a href="{% url 'signup' %}" class="btn nav-item1" style="background-color: #3a3a3a; border-color: #000000; font-weight: bold; color: white;">Register</a>
       <a href="{% url 'login' %}" class="btn nav-item1" style="background-color: #3a3a3a; border-color: #000000; font-weight: bold; color: white;">Login</a>
       {% endif %}
+
     </div>
   </div>
 </nav>

@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
+
 from .models import Product, CartItem
 from django.http import JsonResponse
 
 
-@login_required
+
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
@@ -23,7 +23,7 @@ def remove_from_cart(request, cart_item_id):
     return redirect('cart')
 
 
-@login_required
+
 def update_quantity(request, cart_item_id):
 
     if request.method == 'POST':

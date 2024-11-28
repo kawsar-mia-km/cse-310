@@ -16,23 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from . import views, settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.views import LoginView
+from .import views
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('base/',views.base,name='base'),
-    path('',views.home,name='home'),
-    path('shop/',views.shop,name='shop'),
-    path('cart/',views.cart,name='cart'),
-    path('accounts/login/', LoginView.as_view(template_name='registration/login.html'), name='login'),
-    path('accounts/signup/', views.signup, name='signup'),
-    path('login/',views.LOGIN,name='login'),
-    path('logout/',views.LOGOUT,name='logout'),
-    path('products/',include('products.urls')),
-    path('products/',include('userprofile.urls')),
+    path('profile/', views.userprofile, name='profile'),
 ]
-if settings.DEBUG:
-    urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
