@@ -97,7 +97,7 @@ def LOGIN(request):
         user = authenticate(request, username=uname, password=passw)
         if user is not None:
             login(request, user)
-            return render(request, 'home.html',{'username':uname})
+            return render(request, 'userprofile/profile.html',{'username':uname})
         else:
             return HttpResponse("Username or password is incorrect!")
 
