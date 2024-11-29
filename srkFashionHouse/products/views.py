@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Product, CartItem, Order, OrderItem
+from .models import Product, CartItem, Order, OrderItem,RateProduct
 from django.utils.timezone import now
 from .models import Product, CartItem
 from django.http import JsonResponse
 from django.contrib import messages
+from . import forms
 
 
 
@@ -85,7 +86,7 @@ def create_product(request):
     else:
         form = ProductForm()
 
-    return render(request, 'create_product.html', {'form': form})
+    return render(request, 'products/create_product.html', {'form': form})
 
 
 def update_product(request, pk):
@@ -101,18 +102,32 @@ def update_product(request, pk):
     else:
         form = ProductForm(instance=product)
 
-    return render(request, 'create_product.html', {'form': form})
+    return render(request, 'products/create_product.html', {'form': form})
 
 
 def delete_product(request, pk):
-
     product = get_object_or_404(Product, pk=pk)
     if request.method == 'POST':
         product.delete()
         return redirect('home')
 
-    return render(request, 'delete_product.html', {'product': product})
-
+    return render(request, 'products/delete_products.html', {'product': product})
 def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'product_details.html', {'product': product})
+
+def create_rating(request, id):
+    p = Product.objects.get(pk=id)
+
+    if request.method == "POST":
+        form = forms.RateProductForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.product = p
+            instance.save()
+            return redirect('/')
+    else:
+        form = forms.RateProductForm()
+    return render(request, 'ratingform.html', {
+        "form":form,
+    })

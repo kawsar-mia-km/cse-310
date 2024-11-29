@@ -23,6 +23,10 @@ class Product(models.Model):
     def str(self):
         return self.name
 
+class RateProduct(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    stars = models.CharField(max_length=100, choices=[('1','1'),('2','2'),('3','3'), ('4','4') , ('5','5')])
+
 
 class CartItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -41,7 +45,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def _str_(self):
+    def str(self):
         return f"Order #{self.id} by {self.user.username}"
 
 
@@ -50,5 +54,5 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
 
-    def _str_(self):
+    def str(self):
         return f"{self.quantity} x {self.product.name} (Order #{self.order.id})"
