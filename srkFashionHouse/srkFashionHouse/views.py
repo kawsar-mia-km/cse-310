@@ -1,18 +1,32 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from products.models import Product
+from products.models import Product, RateProduct
 from django.contrib.auth.decorators import login_required
 from products.models import CartItem
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.db.models import Avg
 
 
 def home(request):
-    return render(request, 'home.html')
 
+    products = Product.objects.annotate(avg_rating=Avg('rateproduct__stars'))
+
+
+    trending_products = products.order_by('-avg_rating')[:5]
+
+    trending = [
+        {
+            'product': product,
+            'avg_rating': round(product.avg_rating or 0, 2)  # Default to 0 if no ratings
+        }
+        for product in trending_products
+    ]
+
+    return render(request, 'home.html', {'trending': trending})
 def base(request):
     return render(request, 'base.html')
 
@@ -34,13 +48,28 @@ def cart(request):
     }
     return render(request, 'cart.html', context)
 
+
 def shop(request):
-    category = request.GET.get('category')  # Get the selected category from the query parameters
+    category = request.GET.get('category')
     if category:
-        products = Product.objects.filter(category=category)  # Filter products by category
+        products = Product.objects.filter(category=category)
     else:
-        products = Product.objects.all()  # Show all products if no category is selected
-    return render(request, 'shop.html', {'products': products, 'category': category})
+        products = Product.objects.all()
+
+    x = []
+    for i in products:
+
+        r = RateProduct.objects.filter(product=i)
+        ratings = [int(j.stars) for j in r]
+
+        if ratings:
+            avg_rating = round(sum(ratings) / len(ratings), 2)
+        else:
+            avg_rating = 0
+
+        x.append([i, avg_rating])
+
+    return render(request, 'shop.html', {'products': x, 'category': category})
 
 
 def signup(request):
