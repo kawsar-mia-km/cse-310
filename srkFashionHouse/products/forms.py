@@ -1,5 +1,8 @@
 from django import forms
 from .models import Product,RateProduct
+from django import forms
+
+
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -12,3 +15,5 @@ class RateProductForm(forms.ModelForm):
         fields = [
             'stars',
         ]
+
+

@@ -4,6 +4,7 @@ from django.utils.timezone import now
 from .models import Product, CartItem
 from django.http import JsonResponse
 from django.contrib import messages
+from django.shortcuts import render, redirect
 from . import forms
 
 
@@ -131,3 +132,4 @@ def create_rating(request, id):
     return render(request, 'ratingform.html', {
         "form":form,
     })
+

@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
 
 # Create your models here.
 class Product(models.Model):
@@ -56,3 +58,6 @@ class OrderItem(models.Model):
 
     def str(self):
         return f"{self.quantity} x {self.product.name} (Order #{self.order.id})"
+
+
+

@@ -20,7 +20,9 @@ from . import views, settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
-
+from django.contrib import admin
+from django.urls import path, include
+from orders import views as order_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('base/',views.base,name='base'),
@@ -33,6 +35,8 @@ urlpatterns = [
     path('logout/',views.LOGOUT,name='logout'),
     path('products/',include('products.urls')),
     path('products/',include('userprofile.urls')),
+    path('orders/', include('orders.urls')),
+    path('', order_views.home, name='home'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -31,4 +31,5 @@ urlpatterns = [
     path('product/<int:pk>/', views.product_details, name='product_details'),
 
     path('rating/<int:id>', views.create_rating, name= 'rating'),
+
 ]
